@@ -23,6 +23,36 @@ public class Movement : MonoBehaviour
 
     private void Update()
     {
+        if (fuel1 <= 33)
+        {
+            FuelText1.color = Color.red;
+        }
+
+        else if (fuel1 <= 66 && fuel1 > 33)
+        {
+            FuelText1.color = Color.yellow;
+        }
+
+        else
+        {
+            FuelText1.color = Color.green;
+        }
+
+        if (fuel2 <= 33)
+        {
+            FuelText2.color = Color.red;
+        }
+
+        else if (fuel2 <= 66 && fuel2 > 33)
+        {
+            FuelText2.color = Color.yellow;
+        }
+
+        else
+        {
+            FuelText2.color = Color.green;
+        }
+
         FuelText1.text = Mathf.Round(fuel1).ToString();
         FuelText2.text = Mathf.Round(fuel2).ToString();
 
