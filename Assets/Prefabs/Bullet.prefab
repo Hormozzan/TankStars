@@ -134,8 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: efc4bab72848448469dcaa17b3f5f00d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BulletForce: 1000
-  Direction: 
+  BulletForce: 700
   Damage: 10
 --- !u!114 &120481374
 MonoBehaviour:

@@ -226,13 +226,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117608950}
-  m_LocalRotation: {x: -0, y: -0, z: 0.7730092, w: 0.6343948}
+  m_LocalRotation: {x: 0, y: 0, z: 0.17364816, w: 0.9848078}
   m_LocalPosition: {x: 37.69998, y: 5.600029, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 0}
+  m_LocalScale: {x: 10.8619995, y: 9.7662, z: 0}
   m_Children: []
   m_Father: {fileID: 352736005}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 101.25001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
 --- !u!61 &117608952
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -828,8 +828,8 @@ GameObject:
   - component: {fileID: 352736005}
   - component: {fileID: 352736007}
   - component: {fileID: 352736006}
-  - component: {fileID: 352736008}
   - component: {fileID: 352736009}
+  - component: {fileID: 352736008}
   - component: {fileID: 352736010}
   - component: {fileID: 352736011}
   m_Layer: 5
@@ -889,7 +889,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -912,7 +912,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 955541626371161328, guid: 355a4c0dde8900146ac804d6b9340bab, type: 3}
   SpanwBullet: {fileID: 117608951}
-  Direction: right
+  SpawnAngle: 20
+  MinRot: 0
+  MaxRot: 90
+  RotSpeed: 0.1
 --- !u!114 &352736009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1140,8 +1143,8 @@ GameObject:
   - component: {fileID: 354621488}
   - component: {fileID: 354621489}
   - component: {fileID: 354621490}
-  - component: {fileID: 354621491}
   - component: {fileID: 354621492}
+  - component: {fileID: 354621491}
   - component: {fileID: 354621493}
   - component: {fileID: 354621494}
   m_Layer: 5
@@ -1185,7 +1188,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 7
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -1224,7 +1227,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Bullet: {fileID: 955541626371161328, guid: 355a4c0dde8900146ac804d6b9340bab, type: 3}
   SpanwBullet: {fileID: 1479124023}
-  Direction: left
+  SpawnAngle: -160
+  MinRot: -180
+  MaxRot: 180
+  RotSpeed: -0.1
 --- !u!114 &354621492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2940,13 +2946,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1479124022}
-  m_LocalRotation: {x: -0, y: 0, z: 0.99595433, w: 0.089860685}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9848078, w: 0.17364825}
   m_LocalPosition: {x: 44.700134, y: 4.7000046, z: 0}
-  m_LocalScale: {x: -10, y: 10, z: 0}
+  m_LocalScale: {x: 10, y: -19.457823, z: 0}
   m_Children: []
   m_Father: {fileID: 354621488}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 169.68901}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -160}
 --- !u!61 &1479124024
 BoxCollider2D:
   m_ObjectHideFlags: 0

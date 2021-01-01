@@ -6,18 +6,32 @@ public class BulletSpawn : MonoBehaviour
 {
     public GameObject Bullet;
     public Transform SpanwBullet;
-    public string Direction;
+    public float SpawnAngle;
+    public float MinRot;
+    public float MaxRot;
+    public float RotSpeed;
+    //public float 
+    public float BulletForce = 700.0f;
+    private void Start()
+    {
+        SpawnAngle = SpanwBullet.transform.eulerAngles.z;
+    }
+
     private void Update()
     {
-        bool shoot = Input.GetKeyDown(KeyCode.Return);
-
-        if (shoot)
+        if (GetComponent<Movement>().turn == 1)
         {
-            if (GetComponent<Movement>().turn == 0) {
-                var bullet_obj = Instantiate(Bullet, SpanwBullet.position, SpanwBullet.rotation);
-                bullet_obj.GetComponent<BulletFire>().Direction = Direction;
-            }
+            SpawnAngle += (Input.GetAxis("Horizontal") * RotSpeed);
+            SpawnAngle = Mathf.Clamp(SpawnAngle, MinRot, MaxRot);
+            SpanwBullet.rotation = Quaternion.Euler(0, 0, SpawnAngle);
 
+            BulletForce += Input.GetAxis("Vertical");
+            BulletForce = Mathf.Clamp(BulletForce, 500, 1000);
+        }
+        if (Input.GetKeyDown(KeyCode.Return) && GetComponent<Movement>().turn == 0)
+        {
+            var BulletObj = Instantiate(Bullet, SpanwBullet.position, SpanwBullet.rotation);
+            BulletObj.GetComponent<BulletFire>().BulletForce = BulletForce;
         }
     }
 }
