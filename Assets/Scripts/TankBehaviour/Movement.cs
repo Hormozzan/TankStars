@@ -13,11 +13,18 @@ public class Movement : MonoBehaviour
     public int turn = 0;
     public float Health;
     public float InitialHealth = 100;
+    public AudioSource MovementAudio;
+    public AudioSource ShootingAudio;
 
     void Start()
     {
+        AudioSource[] TankSounds = GetComponents<AudioSource>();
+        MovementAudio = TankSounds[0];
+        ShootingAudio = TankSounds[1];
+
         Fuel = InitialFuel;
         Health = InitialHealth;
+        
     }
 
     void Update()
@@ -34,7 +41,11 @@ public class Movement : MonoBehaviour
         HealthText.text = Mathf.Round(Health).ToString();
 
         if (turn == 1) Fuel = move(Fuel);
-        if (Input.GetKeyDown(KeyCode.Return)) Fuel = InitialFuel;
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            Fuel = InitialFuel;
+            ShootingAudio.Play();
+        } 
     }
     private float move(float fuel)
     {
@@ -46,13 +57,16 @@ public class Movement : MonoBehaviour
                 transform.position += new Vector3(1, 0, 0) * speed * Time.deltaTime;
                 fuel -= speed / 10;
             }
-
             else if (Input.GetKey(KeyCode.A))
             {
                 transform.position += new Vector3(-1, 0, 0) * speed * Time.deltaTime;
                 fuel -= speed / 10;
             }
+
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)) MovementAudio.Play();
+            else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) MovementAudio.Pause();
         }
+        else MovementAudio.Pause();
 
         return fuel;
     }
