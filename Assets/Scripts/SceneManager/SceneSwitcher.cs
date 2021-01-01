@@ -3,12 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class VictorySceneSwitcher : MonoBehaviour
+public class SceneSwitcher : MonoBehaviour
 {
     public int sceneID;
 
-    public void SceneSwitcher(int sceneID)
+    public void Switch(int sceneID)
     {
         SceneManager.LoadScene(sceneID);
+    }
+
+    public void Quit()
+    {
+        Application.Quit();
     }
 }

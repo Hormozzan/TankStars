@@ -294,7 +294,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 537539943}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 586496d2ccdda7041b2e7eb1711f30e7, type: 3}
+  m_Script: {fileID: 11500000, guid: 4beb9e9d2da776c41bbb5ff6215190e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sceneID: 0
@@ -415,7 +415,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.2, y: -2}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1200, y: 675}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &547931203
@@ -611,7 +611,7 @@ Transform:
   m_GameObject: {fileID: 1036884702}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -10}
-  m_LocalScale: {x: 2.6623, y: 2.6001, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -699,7 +699,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 537539944}
-        m_MethodName: SceneSwitcher
+        m_MethodName: Switch
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
