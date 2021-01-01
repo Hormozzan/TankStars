@@ -71,12 +71,12 @@ public class Movement : MonoBehaviour
         return fuel;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet" && turn == 1)
         {
             Destroy(collision.gameObject);
-            Health -= 10;
+            Health -= collision.gameObject.GetComponent<BulletFire>().Damage;
 
         }
     }

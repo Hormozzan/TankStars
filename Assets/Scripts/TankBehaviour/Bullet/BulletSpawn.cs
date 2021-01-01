@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BulletSpawn : MonoBehaviour
 {
-    public GameObject bullet;
-    public Transform spawn_point;
-    public string direction;
+    public GameObject Bullet;
+    public Transform SpanwBullet;
+    public string Direction;
     private void Update()
     {
         bool shoot = Input.GetKeyDown(KeyCode.Return);
@@ -14,8 +14,8 @@ public class BulletSpawn : MonoBehaviour
         if (shoot)
         {
             if (GetComponent<Movement>().turn == 0) {
-                var bullet_obj = Instantiate(bullet, spawn_point.position, spawn_point.rotation);
-                bullet_obj.GetComponent<BulletFire>().direction = direction;
+                var bullet_obj = Instantiate(Bullet, SpanwBullet.position, SpanwBullet.rotation);
+                bullet_obj.GetComponent<BulletFire>().Direction = Direction;
             }
 
         }
