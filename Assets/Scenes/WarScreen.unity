@@ -914,7 +914,7 @@ MonoBehaviour:
   SpanwBullet: {fileID: 117608951}
   SpawnAngle: 20
   MinRot: 0
-  MaxRot: 90
+  MaxRot: 180
   RotSpeed: 0.1
   BulletForce: 700
 --- !u!114 &352736009
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   Bullet: {fileID: 955541626371161328, guid: 355a4c0dde8900146ac804d6b9340bab, type: 3}
   SpanwBullet: {fileID: 1479124023}
   SpawnAngle: -160
-  MinRot: -180
+  MinRot: 0
   MaxRot: 180
   RotSpeed: -0.1
   BulletForce: 700

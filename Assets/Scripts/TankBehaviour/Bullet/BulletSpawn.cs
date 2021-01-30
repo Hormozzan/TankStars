@@ -20,6 +20,8 @@ public class BulletSpawn : MonoBehaviour
     {
         if (GetComponent<Movement>().turn == 1)
         {
+            gameObject.transform.localScale = SpawnAngle >= 90 ? new Vector3(-1, 1, 1) : gameObject.transform.localScale = new Vector3(1, 1, 1);
+
             SpawnAngle += (Input.GetAxis("Horizontal") * RotSpeed);
             SpawnAngle = Mathf.Clamp(SpawnAngle, MinRot, MaxRot);
             SpanwBullet.rotation = Quaternion.Euler(0, 0, SpawnAngle);
@@ -27,10 +29,17 @@ public class BulletSpawn : MonoBehaviour
             BulletForce += Input.GetAxis("Vertical");
             BulletForce = Mathf.Clamp(BulletForce, 500, 1000);
         }
-        if (Input.GetKeyDown(KeyCode.Return) && GetComponent<Movement>().turn == 0)
+
+        else
         {
-            var BulletObj = Instantiate(Bullet, SpanwBullet.position, SpanwBullet.rotation);
-            BulletObj.GetComponent<BulletFire>().BulletForce = BulletForce;
+            gameObject.transform.localScale = SpawnAngle <= 90 ? new Vector3(1, 1, 1) : gameObject.transform.localScale = new Vector3(-1, 1, 1);
+
+            if (Input.GetKeyDown(KeyCode.Return))
+            {
+                var BulletObj = Instantiate(Bullet, SpanwBullet.position, SpanwBullet.rotation);
+                BulletObj.GetComponent<BulletFire>().BulletForce = BulletForce;
+            }
         }
+
     }
 }
