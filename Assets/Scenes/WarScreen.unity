@@ -231,7 +231,7 @@ Transform:
   m_LocalScale: {x: 10.8619995, y: 9.7662, z: 0}
   m_Children: []
   m_Father: {fileID: 352736005}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20}
 --- !u!61 &117608952
 BoxCollider2D:
@@ -850,8 +850,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1815922213}
   - {fileID: 117608951}
+  - {fileID: 1815922213}
   - {fileID: 1566339462}
   m_Father: {fileID: 280510847}
   m_RootOrder: 4
@@ -916,6 +916,7 @@ MonoBehaviour:
   MinRot: 0
   MaxRot: 90
   RotSpeed: 0.1
+  BulletForce: 700
 --- !u!114 &352736009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1165,9 +1166,9 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -1, y: 1, z: 0}
   m_Children:
+  - {fileID: 1479124023}
   - {fileID: 930609648}
   - {fileID: 1989634754}
-  - {fileID: 1479124023}
   m_Father: {fileID: 280510847}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1231,6 +1232,7 @@ MonoBehaviour:
   MinRot: -180
   MaxRot: 180
   RotSpeed: -0.1
+  BulletForce: 700
 --- !u!114 &354621492
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2189,7 +2191,7 @@ Transform:
   m_LocalScale: {x: 17.018118, y: 17.638737, z: 0}
   m_Children: []
   m_Father: {fileID: 354621488}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &930609649
 SpriteRenderer:
@@ -2951,7 +2953,7 @@ Transform:
   m_LocalScale: {x: 10, y: -19.457823, z: 0}
   m_Children: []
   m_Father: {fileID: 354621488}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -160}
 --- !u!61 &1479124024
 BoxCollider2D:
@@ -3105,10 +3107,10 @@ RectTransform:
   m_Father: {fileID: 280510847}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: -1100, y: -575}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!61 &1691005847
 BoxCollider2D:
@@ -3189,10 +3191,10 @@ RectTransform:
   m_Father: {fileID: 280510847}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1200, y: 675}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1779895867
 MonoBehaviour:
@@ -3334,7 +3336,7 @@ Transform:
   m_LocalScale: {x: 16.756565, y: 16.273077, z: 0}
   m_Children: []
   m_Father: {fileID: 352736005}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1815922214
 SpriteRenderer:
@@ -3641,7 +3643,7 @@ Transform:
   m_LocalScale: {x: 17.010891, y: 19.175095, z: 0}
   m_Children: []
   m_Father: {fileID: 354621488}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1989634755
 SpriteRenderer:

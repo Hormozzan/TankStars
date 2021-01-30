@@ -10,7 +10,6 @@ public class BulletSpawn : MonoBehaviour
     public float MinRot;
     public float MaxRot;
     public float RotSpeed;
-    //public float 
     public float BulletForce = 700.0f;
     private void Start()
     {

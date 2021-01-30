@@ -13,7 +13,13 @@ public class BulletDestroy : MonoBehaviour
     {
         Colided = Physics2D.OverlapCircle(bullet.position, ColisionRadius, ColidedWith);
 
-        if (Colided) Destroy(gameObject);
-        if (!GetComponent<Renderer>().isVisible) Destroy(gameObject);
+        if (Colided ||
+            !GetComponent<Renderer>().isVisible ||
+            gameObject.transform.position.y <= -1.9 ||
+            gameObject.transform.position.x >= 8.9 ||
+            gameObject.transform.position.x <= -8.9)
+        { 
+            Destroy(gameObject);
+        }
     }
 }
