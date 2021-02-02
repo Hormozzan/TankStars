@@ -10,6 +10,7 @@ public class TankPresenter : MonoBehaviour
     float speed;
     public Text FuelText;
     public Text HealthText;
+    public Text CoinText;
     public AudioSource MovementAudio;
     public AudioSource ShootingAudio;
     public BulletPresenter BulletPresenterObj;
@@ -21,10 +22,13 @@ public class TankPresenter : MonoBehaviour
     public int turn = 0;
     public float RotSpeed;
     float Force = 700.0f;
-    public void SetUp(Sprite sprite, Text fuel, Text health, float speed, string positon, float rot_speed, float spawn_angle)
+   
+    
+    public void SetUp(Sprite sprite, Text fuel, Text health, Text coin, float speed, string positon, float rot_speed, float spawn_angle)
     {
         FuelText = fuel;
         HealthText = health;
+        CoinText = coin;
         this.speed = speed;
         AudioSource[] TankSounds = GetComponents<AudioSource>();
         MovementAudio = TankSounds[0];
@@ -42,12 +46,15 @@ public class TankPresenter : MonoBehaviour
         RotSpeed = rot_speed;
     }
 
+    
     public void SetActions(Action FuelConsumption, Action<float> OnCollisionBullet)
     {
         this.FuelConsumption = FuelConsumption;
         this.OnCollisionBullet = OnCollisionBullet;
     }
 
+    
+    
     public void SetFuelText(float fuel)
     {
         if (fuel <= 33) FuelText.color = Color.red;
@@ -55,6 +62,8 @@ public class TankPresenter : MonoBehaviour
         else FuelText.color = Color.green;
         FuelText.text = Mathf.Round(fuel).ToString();
     }
+    
+    
     public void SetHealthText(float health)
     {
         if (health <= 33) HealthText.color = Color.red;
@@ -62,11 +71,21 @@ public class TankPresenter : MonoBehaviour
         else HealthText.color = Color.green;
         HealthText.text = Mathf.Round(health).ToString();
     }
+
+
+    public void SetCoinText(int coin)
+    {
+        CoinText.text = coin.ToString();
+    }
+    
+    
     public void Shoot()
     {
         var BulletObj = Instantiate(BulletPresenterObj, BulletSpanwPoint.position, BulletSpanwPoint.rotation);
         BulletObj.SetForce(Force);
     }
+    
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Return))
@@ -75,6 +94,8 @@ public class TankPresenter : MonoBehaviour
         }
     }
 
+    
+    
     public void moving()
     {
         if (Input.GetKey(KeyCode.D))
@@ -92,6 +113,8 @@ public class TankPresenter : MonoBehaviour
         else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) MovementAudio.Pause();
         //else MovementAudio.Pause();
     }
+    
+    
     public void Targeting()
     {
         gameObject.transform.localScale = SpawnAngle >= 90 ? new Vector3(-1, 1, 1) : gameObject.transform.localScale = new Vector3(1, 1, 1);
@@ -103,10 +126,14 @@ public class TankPresenter : MonoBehaviour
         Force += Input.GetAxis("Vertical");
         Force = Mathf.Clamp(Force, 500, 1000);
     }
+    
+    
     public void Turn()
     {
         turn = 1 - turn;
     }
+    
+    
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Bullet" && turn == 1)

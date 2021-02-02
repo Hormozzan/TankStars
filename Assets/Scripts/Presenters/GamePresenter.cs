@@ -14,12 +14,15 @@ public class GamePresenter : MonoBehaviour
     public Text LeftFuelText;
     public Text LeftHealthText;
     public Text RightHealthText;
+    public Text LeftCoinText;
+    public Text RightCoinText;
     public List<Sprite> Backgrounds;
     public GameObject Background;
 
     TankPresenter tank1;
     TankPresenter tank2;
 
+    
     public void Awake()
     {
         GameModelObj = new GameModel(GameConfigObj.InitialHealth, GameConfigObj.InitialFuel);
@@ -28,34 +31,42 @@ public class GamePresenter : MonoBehaviour
         Background.GetComponent<Image>().sprite = Backgrounds[UnityEngine.Random.Range(0, 3)];
 
         tank1 = Instantiate(TankPresenterObj, LeftTankSpawn.transform);
-        tank1.SetUp(GameConfigObj.Tank1, LeftFuelText, LeftHealthText, GameConfigObj.Speed,"left", 0.1f, 20);
+        tank1.SetUp(GameConfigObj.Tank1, LeftFuelText, LeftHealthText, LeftCoinText, GameConfigObj.Speed, "left", 0.1f, 20);
+        tank1.SetCoinText(GameModelObj.tank1.coin);
         tank1.SetFuelText(GameModelObj.tank1.fuel);
         tank1.SetHealthText(GameModelObj.tank1.health);
         tank1.SetActions(FuelConsumption, OnCollisionBullet);
         
         tank2 = Instantiate(TankPresenterObj, RightTankSpawn.transform);
-        tank2.SetUp(GameConfigObj.Tank2, RightFuelText, RightHealthText, GameConfigObj.Speed, "right", -0.1f, 160);
+        tank2.SetUp(GameConfigObj.Tank2, RightFuelText, RightHealthText, RightCoinText, GameConfigObj.Speed, "right", -0.1f, 160);
+        tank2.SetCoinText(GameModelObj.tank2.coin);
         tank2.SetFuelText(GameModelObj.tank2.fuel);
         tank2.SetHealthText(GameModelObj.tank2.health);
         tank2.SetActions(FuelConsumption, OnCollisionBullet);
     }
+    
+    
     void FuelConsumption()
     {
-
         if (GameModelObj.tank1.turn == 1)
             GameModelObj.tank1.fuel -= GameConfigObj.Speed / 10;
         else if (GameModelObj.tank2.turn == 1)
-            GameModelObj.tank2.fuel -= GameConfigObj.Speed / 10;
-        
+            GameModelObj.tank2.fuel -= GameConfigObj.Speed / 10;   
     }
+    
+    
     public void PlayerOneWin()
     {
         GetComponent<SceneSwitcher>().Switch(GameConfigObj.VictorySceneID1);
     }
+    
+    
     public void PlayerTwoWin()
     {
         GetComponent<SceneSwitcher>().Switch(GameConfigObj.VictorySceneID2);
     }
+    
+    
     void OnCollisionBullet(float damage)
     {
         if (GameModelObj.tank1.turn == 1)
@@ -70,11 +81,15 @@ public class GamePresenter : MonoBehaviour
             tank2.SetHealthText(GameModelObj.tank2.health);
         }
     }
+    
+    
     void PresenterTurn()
     {
         tank1.turn = 1 - tank1.turn;
         tank2.turn = 1 - tank2.turn;
     }
+    
+    
     void Update()
     {
         if (GameModelObj.tank1.turn == 1)
@@ -102,6 +117,5 @@ public class GamePresenter : MonoBehaviour
             }
         }
         GameModelObj.CheckStatus();
-
     }
 }
