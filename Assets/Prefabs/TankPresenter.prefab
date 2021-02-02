@@ -102,6 +102,7 @@ MonoBehaviour:
   BulletSpanwPoint: {fileID: 674321546126280322}
   SpawnAngle: 0
   TankImage: {fileID: 4755736725101725126}
+  turn: 0
   RotSpeed: 0
 --- !u!222 &3384788088450767063
 CanvasRenderer:

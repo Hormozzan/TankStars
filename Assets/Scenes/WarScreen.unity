@@ -866,8 +866,11 @@ MonoBehaviour:
   LeftFuelText: {fileID: 673823978}
   LeftHealthText: {fileID: 615193607}
   RightHealthText: {fileID: 1352996488}
-  VictorySceneID1: 2
-  VictorySceneID2: 3
+  Backgrounds:
+  - {fileID: 21300000, guid: b1c7f9a391ba4a84bae114077ae8fb08, type: 3}
+  - {fileID: 21300000, guid: 97e1776808f8909478e3b68b18b2f167, type: 3}
+  - {fileID: 21300000, guid: 00cfeaf35d54cbf439d55b5d29a395b0, type: 3}
+  Background: {fileID: 1779895865}
 --- !u!1 &320203499
 GameObject:
   m_ObjectHideFlags: 0
@@ -2645,7 +2648,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 97e1776808f8909478e3b68b18b2f167, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

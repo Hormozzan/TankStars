@@ -14,13 +14,18 @@ public class GamePresenter : MonoBehaviour
     public Text LeftFuelText;
     public Text LeftHealthText;
     public Text RightHealthText;
+    public List<Sprite> Backgrounds;
+    public GameObject Background;
 
     TankPresenter tank1;
     TankPresenter tank2;
+
     public void Awake()
     {
         GameModelObj = new GameModel(GameConfigObj.InitialHealth, GameConfigObj.InitialFuel);
         GameModelObj.SetActions(PlayerOneWin, PlayerTwoWin);
+
+        Background.GetComponent<Image>().sprite = Backgrounds[UnityEngine.Random.Range(0, 3)];
 
         tank1 = Instantiate(TankPresenterObj, LeftTankSpawn.transform);
         tank1.SetUp(GameConfigObj.Tank1, LeftFuelText, LeftHealthText, GameConfigObj.Speed,"left", 0.1f, 20);
