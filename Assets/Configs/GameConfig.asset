@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a912ea030f6eb5346ae471dd5039c104, type: 3}
+  m_Name: GameConfig
+  m_EditorClassIdentifier: 
+  Speed: 2
+  InitialHealth: 100
+  InitialFuel: 100
+  Tank1: {fileID: 2485287294409905528, guid: 1c7ff5049aca9874f8226d5ebde2343d, type: 3}
+  Tank2: {fileID: 4803058085258218712, guid: 04d2d25a5b2dd224ba98bc77b5c9dabf, type: 3}
+  VictorySceneID1: 2
+  VictorySceneID2: 3
