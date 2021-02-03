@@ -35,6 +35,7 @@ public class GameModel
     private float initial_fuel;
     private string playerPrefsKey = "Score";
 
+    
     public GameModel(float initial_health, float initial_fuel)
     {
         this.initial_fuel = initial_fuel;
@@ -42,11 +43,15 @@ public class GameModel
         tank1 = new Tank(initial_health, initial_fuel, score.Player1Score, 1);
         tank2 = new Tank(initial_health, initial_fuel, score.Player2Score, 0);
     }
+    
+    
     public void SetActions(Action PlayerOneWin, Action PlayerTwoWin)
     {
         this.PlayerOneWin = PlayerOneWin;
         this.PlayerTwoWin = PlayerTwoWin;
     }
+    
+    
     public void Turn()
     {
         tank1.turn = 1 - tank1.turn;
@@ -54,6 +59,8 @@ public class GameModel
         tank1.fuel = initial_fuel;
         tank2.fuel = initial_fuel;
     }
+    
+    
     public void CheckStatus()
     {
         if (tank1.health <= 0)

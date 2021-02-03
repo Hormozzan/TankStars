@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class GamePresenter : MonoBehaviour
 {
-    private GameModel GameModelObj;
     public GameConfig GameConfigObj;
     public TankPresenter TankPresenterObj;
     public GameObject LeftTankSpawn;
@@ -18,9 +17,9 @@ public class GamePresenter : MonoBehaviour
     public Text RightCoinText;
     public List<Sprite> Backgrounds;
     public GameObject Background;
-
-    TankPresenter tank1;
-    TankPresenter tank2;
+    private GameModel GameModelObj;
+    private TankPresenter tank1;
+    private TankPresenter tank2;
 
     
     public void Awake()
