@@ -592,7 +592,6 @@ GameObject:
   - component: {fileID: 280510849}
   - component: {fileID: 280510850}
   - component: {fileID: 280510851}
-  - component: {fileID: 280510852}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: MainCanvas
@@ -849,34 +848,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &280510852
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 280510843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff90b193429099b4ab2590f1d231fd15, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  GameConfigObj: {fileID: 11400000, guid: 68ca8c3d597ec9e4cb6a92924f13ec6d, type: 2}
-  TankPresenterObj: {fileID: 3149664806299271602, guid: 6283620018cb5154ab50c2d0bad1377a,
-    type: 3}
-  LeftTankSpawn: {fileID: 320203499}
-  RightTankSpawn: {fileID: 1790350756}
-  RightFuelText: {fileID: 844219052}
-  LeftFuelText: {fileID: 673823978}
-  LeftHealthText: {fileID: 615193607}
-  RightHealthText: {fileID: 1352996488}
-  LeftCoinText: {fileID: 1517917306}
-  RightCoinText: {fileID: 1429974495}
-  Backgrounds:
-  - {fileID: 21300000, guid: b1c7f9a391ba4a84bae114077ae8fb08, type: 3}
-  - {fileID: 21300000, guid: 97e1776808f8909478e3b68b18b2f167, type: 3}
-  - {fileID: 21300000, guid: 00cfeaf35d54cbf439d55b5d29a395b0, type: 3}
-  Background: {fileID: 1779895865}
 --- !u!1 &320203499
 GameObject:
   m_ObjectHideFlags: 0
@@ -1604,6 +1575,66 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &820696971
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 820696973}
+  - component: {fileID: 820696972}
+  m_Layer: 0
+  m_Name: GamePresenter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &820696972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820696971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff90b193429099b4ab2590f1d231fd15, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameConfigObj: {fileID: 11400000, guid: 68ca8c3d597ec9e4cb6a92924f13ec6d, type: 2}
+  TanksConfigObj: {fileID: 11400000, guid: f22dbb303180a16489d49a0867b5a0cf, type: 2}
+  TankPresenterObj: {fileID: 3149664806299271602, guid: 6283620018cb5154ab50c2d0bad1377a,
+    type: 3}
+  LeftTankSpawn: {fileID: 320203499}
+  RightTankSpawn: {fileID: 1790350756}
+  RightFuelText: {fileID: 844219052}
+  LeftFuelText: {fileID: 673823978}
+  LeftHealthText: {fileID: 615193607}
+  RightHealthText: {fileID: 1352996488}
+  LeftCoinText: {fileID: 1517917306}
+  RightCoinText: {fileID: 1429974495}
+  Backgrounds:
+  - {fileID: 21300000, guid: b1c7f9a391ba4a84bae114077ae8fb08, type: 3}
+  - {fileID: 21300000, guid: 97e1776808f8909478e3b68b18b2f167, type: 3}
+  - {fileID: 21300000, guid: 00cfeaf35d54cbf439d55b5d29a395b0, type: 3}
+  Background: {fileID: 1779895865}
+--- !u!4 &820696973
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820696971}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.660082, y: 0.85082966, z: -0.70334136}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &844219051
 GameObject:
   m_ObjectHideFlags: 0

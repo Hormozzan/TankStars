@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class GamePresenter : MonoBehaviour
 {
     public GameConfig GameConfigObj;
+    public TanksConfig TanksConfigObj;
     public TankPresenter TankPresenterObj;
     public GameObject LeftTankSpawn;
     public GameObject RightTankSpawn;
@@ -30,14 +31,14 @@ public class GamePresenter : MonoBehaviour
         Background.GetComponent<Image>().sprite = Backgrounds[UnityEngine.Random.Range(0, 3)];
 
         tank1 = Instantiate(TankPresenterObj, LeftTankSpawn.transform);
-        tank1.SetUp(GameConfigObj.Tank1, LeftFuelText, LeftHealthText, LeftCoinText, GameConfigObj.Speed, "left", 0.1f, 20);
+        tank1.SetUp(TanksConfigObj.TanksSprites[PlayerPrefs.GetInt("SelectedTankP1")], LeftFuelText, LeftHealthText, LeftCoinText, GameConfigObj.Speed, "left", 0.1f, 20);
         tank1.SetCoinText(GameModelObj.tank1.coin);
         tank1.SetFuelText(GameModelObj.tank1.fuel);
         tank1.SetHealthText(GameModelObj.tank1.health);
         tank1.SetActions(FuelConsumption, OnCollisionBullet);
         
         tank2 = Instantiate(TankPresenterObj, RightTankSpawn.transform);
-        tank2.SetUp(GameConfigObj.Tank2, RightFuelText, RightHealthText, RightCoinText, GameConfigObj.Speed, "right", -0.1f, 160);
+        tank2.SetUp(TanksConfigObj.TanksSprites[PlayerPrefs.GetInt("SelectedTankP2")], RightFuelText, RightHealthText, RightCoinText, GameConfigObj.Speed, "right", -0.1f, 160);
         tank2.SetCoinText(GameModelObj.tank2.coin);
         tank2.SetFuelText(GameModelObj.tank2.fuel);
         tank2.SetHealthText(GameModelObj.tank2.health);

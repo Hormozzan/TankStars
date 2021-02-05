@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9845fc9d5868ab94492a4dadfd9cd981, type: 3}
+  m_Name: TanksConfig
+  m_EditorClassIdentifier: 
+  TanksSprites:
+  - {fileID: 2485287294409905528, guid: 1c7ff5049aca9874f8226d5ebde2343d, type: 3}
+  - {fileID: 4803058085258218712, guid: 04d2d25a5b2dd224ba98bc77b5c9dabf, type: 3}
+  - {fileID: 8842744376882955741, guid: a15c190ebc8d6634a85d53072bca1fbd, type: 3}
+  - {fileID: -2529804286022096062, guid: 8ab479d9c7015fb448385e9f9e74d92a, type: 3}
