@@ -25,6 +25,11 @@ public class GamePresenter : MonoBehaviour
     
     public void Awake()
     {
+        GameObject[] MusicObjs = GameObject.FindGameObjectsWithTag("Music");
+        if (MusicObjs.Length == 1)
+        {
+            MusicObjs[0].GetComponent<AudioSource>().Pause();
+        }
         GameModelObj = new GameModel(GameConfigObj.InitialHealth, GameConfigObj.InitialFuel);
         GameModelObj.SetActions(PlayerOneWin, PlayerTwoWin);
 
@@ -102,6 +107,8 @@ public class GamePresenter : MonoBehaviour
                 tank1.Shoot();
                 PresenterTurn();
                 GameModelObj.Turn();
+                tank1.DeactivePoints();
+                tank2.ActivePoints();
             }
         }
         else if (GameModelObj.tank2.turn == 1)
@@ -114,6 +121,8 @@ public class GamePresenter : MonoBehaviour
                 tank2.Shoot();
                 PresenterTurn();
                 GameModelObj.Turn();
+                tank2.DeactivePoints();
+                tank1.ActivePoints();
             }
         }
         GameModelObj.CheckStatus();

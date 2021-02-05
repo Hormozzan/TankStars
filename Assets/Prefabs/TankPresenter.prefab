@@ -56,7 +56,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 7
+  m_Mass: 3
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FuelText: {fileID: 0}
   HealthText: {fileID: 0}
+  CoinText: {fileID: 0}
   MovementAudio: {fileID: 0}
   ShootingAudio: {fileID: 0}
   BulletPresenterObj: {fileID: -3023902293715471304, guid: a71923d53b994fc4abc818b80a5fe1f8,
@@ -104,6 +105,9 @@ MonoBehaviour:
   TankImage: {fileID: 4755736725101725126}
   turn: 0
   RotSpeed: 0
+  point: {fileID: 2822240119854509907, guid: cc964ae6477901e48984e579f103d9c0, type: 3}
+  numberOfPoints: 10
+  SpaceBetweenPoints: 0.05
 --- !u!222 &3384788088450767063
 CanvasRenderer:
   m_ObjectHideFlags: 0

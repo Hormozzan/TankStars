@@ -22,8 +22,32 @@ public class TankPresenter : MonoBehaviour
     public int turn = 0;
     public float RotSpeed;
     float Force = 700.0f;
-   
-    
+
+    public GameObject point;
+    GameObject[] poitns;
+    public int numberOfPoints;
+    public float SpaceBetweenPoints;
+    private string tag;
+    private void Start()
+    {
+        poitns = new GameObject[numberOfPoints];
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            poitns[i] = Instantiate(point, BulletSpanwPoint.position, Quaternion.identity);
+        }
+    }
+    Vector2 PointPosition(float t)
+    {
+        Vector2 angle = Vector2.one.normalized;
+        Vector2 postion = (Vector2)BulletSpanwPoint.position + (angle * (Force/120) * t) + 0.5f * Physics2D.gravity * (t * t);
+        if (tag == "right")
+        {
+            postion.x = (float)(BulletSpanwPoint.position.x - (angle.x * (Force / 120) * t) + 0.5f * Physics2D.gravity.x * (t * t));
+            postion.y += (180 - SpawnAngle) * 0.07f * t;
+        }
+        else postion.y += SpawnAngle * 0.07f * t;
+        return postion;
+    }
     public void SetUp(Sprite sprite, Text fuel, Text health, Text coin, float speed, string positon, float rot_speed, float spawn_angle)
     {
         FuelText = fuel;
@@ -34,6 +58,7 @@ public class TankPresenter : MonoBehaviour
         MovementAudio = TankSounds[0];
         ShootingAudio = TankSounds[1];
         TankImage.sprite = sprite;
+        tag = positon;
         if (positon == "left")
         {
             transform.localScale = new Vector3(1, 1, 0);
@@ -88,6 +113,13 @@ public class TankPresenter : MonoBehaviour
     
     void Update()
     {
+        if (turn == 1)
+        {
+            for (int i = 0; i < numberOfPoints; i++)
+            {
+                poitns[i].transform.position = PointPosition(i * SpaceBetweenPoints);
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Return))
         {
             ShootingAudio.Play();
@@ -141,6 +173,20 @@ public class TankPresenter : MonoBehaviour
             OnCollisionBullet(collision.gameObject.GetComponent<BulletPresenter>().GetDamage());
             Destroy(collision.gameObject);
 
+        }
+    }
+    public void DeactivePoints()
+    {
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            poitns[i].SetActive(false);
+        }
+    }
+    public void ActivePoints()
+    {
+        for (int i = 0; i < numberOfPoints; i++)
+        {
+            poitns[i].SetActive(true);
         }
     }
 

@@ -17,5 +17,5 @@ MonoBehaviour:
   InitialFuel: 100
   Tank1: {fileID: 2485287294409905528, guid: 1c7ff5049aca9874f8226d5ebde2343d, type: 3}
   Tank2: {fileID: 4803058085258218712, guid: 04d2d25a5b2dd224ba98bc77b5c9dabf, type: 3}
-  VictorySceneID1: 2
-  VictorySceneID2: 3
+  VictorySceneID1: 3
+  VictorySceneID2: 4

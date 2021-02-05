@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScreen.unity
     guid: 9a48a9cb8533d274397a4abe1b7dd857
   - enabled: 1
+    path: Assets/Scenes/TankSelectionMenuScreen.unity
+    guid: 0eaee31bdbedff04ea7623f025d3d2af
+  - enabled: 1
     path: Assets/Scenes/WarScreen.unity
     guid: 0b8af136476b2204ebcbc5caa5261495
   - enabled: 1

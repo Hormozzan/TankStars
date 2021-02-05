@@ -8,6 +8,7 @@ TagManager:
   - Tank
   - Bullet
   - MainCanvas
+  - Music
   layers:
   - Default
   - TransparentFX
