@@ -109,7 +109,9 @@ public class GamePresenter : MonoBehaviour
                 GameModelObj.Turn();
                 tank1.DeactivePoints();
                 tank2.ActivePoints();
+                tank1.MovementAudio.Pause();
             }
+            if (GameModelObj.tank1.fuel <= 0) tank1.MovementAudio.Pause();
         }
         else if (GameModelObj.tank2.turn == 1)
         {
@@ -123,7 +125,10 @@ public class GamePresenter : MonoBehaviour
                 GameModelObj.Turn();
                 tank2.DeactivePoints();
                 tank1.ActivePoints();
+                tank2.MovementAudio.Pause();
             }
+            if (GameModelObj.tank2.fuel <= 0) tank2.MovementAudio.Pause();
+
         }
         GameModelObj.CheckStatus();
     }
