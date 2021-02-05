@@ -15,7 +15,6 @@ public class BulletPresenter : MonoBehaviour
     public void Awake()
     {
         transform.rotation = Quaternion.AngleAxis(90, Vector3.forward);
-        Debug.Log(transform.rotation);
         rb = GetComponent<Rigidbody2D>();
         BulletModelObj = new BulletModel();
         Force = BulletConfigObj.force;

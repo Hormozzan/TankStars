@@ -64,9 +64,14 @@ public class TankSelectionPresenter : MonoBehaviour
     }
     public void Play()
     {
-        if (IsSelectedP1 && IsSelectedP2)
+        if (!IsSelectedP1)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            SelectP1();
         }
+        if (!IsSelectedP2)
+        {
+            SelectP2();
+        }
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
