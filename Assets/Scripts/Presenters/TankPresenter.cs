@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class TankPresenter : MonoBehaviour
 {
-    float speed;
     public Text FuelText;
     public Text HealthText;
     public Text CoinText;
@@ -17,37 +16,47 @@ public class TankPresenter : MonoBehaviour
     public Transform BulletSpanwPoint;
     public float SpawnAngle;
     public Image TankImage;
-    private Action FuelConsumption;
-    private Action<float> OnCollisionBullet;
     public int turn = 0;
     public float RotSpeed;
-    float Force = 700.0f;
-
     public GameObject point;
-    GameObject[] poitns;
     public int numberOfPoints;
     public float SpaceBetweenPoints;
-    private string tag;
+    private Action FuelConsumption;
+    private Action<float> OnCollisionBullet;
+    private float speed;
+    private float Force = 700.0f;
+    private GameObject[] poitns;
+    private string obj_tag;
+
+
     private void Start()
     {
         poitns = new GameObject[numberOfPoints];
+        
         for (int i = 0; i < numberOfPoints; i++)
         {
             poitns[i] = Instantiate(point, BulletSpanwPoint.position, Quaternion.identity);
         }
     }
-    Vector2 PointPosition(float t)
+   
+    
+    private Vector2 PointPosition(float t)
     {
         Vector2 angle = Vector2.one.normalized;
         Vector2 postion = (Vector2)BulletSpanwPoint.position + (angle * (Force/120) * t) + 0.5f * Physics2D.gravity * (t * t);
-        if (tag == "right")
+        
+        if (obj_tag == "right")
         {
             postion.x = (float)(BulletSpanwPoint.position.x - (angle.x * (Force / 120) * t) + 0.5f * Physics2D.gravity.x * (t * t));
             postion.y += (180 - SpawnAngle) * 0.07f * t;
         }
+        
         else postion.y += SpawnAngle * 0.07f * t;
+        
         return postion;
     }
+    
+    
     public void SetUp(Sprite sprite, Text fuel, Text health, Text coin, float speed, string positon, float rot_speed, float spawn_angle)
     {
         FuelText = fuel;
@@ -58,13 +67,16 @@ public class TankPresenter : MonoBehaviour
         MovementAudio = TankSounds[0];
         ShootingAudio = TankSounds[1];
         TankImage.sprite = sprite;
-        tag = positon;
+        obj_tag = positon;
+        
         if (positon == "left")
         {
             transform.localScale = new Vector3(1, 1, 0);
             turn = 1;
         }
+        
         else transform.localScale = new Vector3(-1, 1, 0);
+        
         gameObject.GetComponent<RectTransform>().sizeDelta = new Vector2(100, 50);
         SpawnAngle = spawn_angle;
         BulletSpanwPoint.rotation = Quaternion.Euler(0, 0, SpawnAngle);
@@ -77,8 +89,7 @@ public class TankPresenter : MonoBehaviour
         this.FuelConsumption = FuelConsumption;
         this.OnCollisionBullet = OnCollisionBullet;
     }
-
-    
+        
     
     public void SetFuelText(float fuel)
     {
@@ -120,13 +131,13 @@ public class TankPresenter : MonoBehaviour
                 poitns[i].transform.position = PointPosition(i * SpaceBetweenPoints);
             }
         }
+        
         if (Input.GetKeyDown(KeyCode.Return))
         {
             ShootingAudio.Play();
         }
     }
 
-    
     
     public void moving()
     {
@@ -135,6 +146,7 @@ public class TankPresenter : MonoBehaviour
             transform.position += new Vector3(1, 0, 0) * speed * Time.deltaTime;
             FuelConsumption();
         }
+        
         else if (Input.GetKey(KeyCode.A))
         {
             transform.position += new Vector3(-1, 0, 0) * speed * Time.deltaTime;
@@ -143,13 +155,12 @@ public class TankPresenter : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.A)) MovementAudio.Play();
         else if (Input.GetKeyUp(KeyCode.D) || Input.GetKeyUp(KeyCode.A)) MovementAudio.Pause();
-        //else MovementAudio.Pause();
     }
     
     
     public void Targeting()
     {
-        gameObject.transform.localScale = SpawnAngle >= 90 ? new Vector3(-1, 1, 1) : gameObject.transform.localScale = new Vector3(1, 1, 1);
+        gameObject.transform.localScale = SpawnAngle >= 90 ? new Vector3(-1, 1, 1) : new Vector3(1, 1, 1);
 
         SpawnAngle += (Input.GetAxis("Horizontal") * RotSpeed);
         SpawnAngle = Mathf.Clamp(SpawnAngle, 0, 180);
@@ -172,9 +183,10 @@ public class TankPresenter : MonoBehaviour
         {
             OnCollisionBullet(collision.gameObject.GetComponent<BulletPresenter>().GetDamage());
             Destroy(collision.gameObject);
-
         }
     }
+    
+    
     public void DeactivePoints()
     {
         for (int i = 0; i < numberOfPoints; i++)
@@ -182,6 +194,8 @@ public class TankPresenter : MonoBehaviour
             poitns[i].SetActive(false);
         }
     }
+    
+    
     public void ActivePoints()
     {
         for (int i = 0; i < numberOfPoints; i++)
@@ -189,5 +203,4 @@ public class TankPresenter : MonoBehaviour
             poitns[i].SetActive(true);
         }
     }
-
 }

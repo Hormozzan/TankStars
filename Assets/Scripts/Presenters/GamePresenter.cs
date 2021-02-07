@@ -26,10 +26,12 @@ public class GamePresenter : MonoBehaviour
     public void Awake()
     {
         GameObject[] MusicObjs = GameObject.FindGameObjectsWithTag("Music");
+        
         if (MusicObjs.Length == 1)
         {
             MusicObjs[0].GetComponent<AudioSource>().Pause();
         }
+        
         GameModelObj = new GameModel(GameConfigObj.InitialHealth, GameConfigObj.InitialFuel);
         GameModelObj.SetActions(PlayerOneWin, PlayerTwoWin);
 
@@ -55,6 +57,7 @@ public class GamePresenter : MonoBehaviour
     {
         if (GameModelObj.tank1.turn == 1)
             GameModelObj.tank1.fuel -= GameConfigObj.Speed / 10;
+        
         else if (GameModelObj.tank2.turn == 1)
             GameModelObj.tank2.fuel -= GameConfigObj.Speed / 10;   
     }
@@ -100,8 +103,10 @@ public class GamePresenter : MonoBehaviour
         if (GameModelObj.tank1.turn == 1)
         {
             tank1.SetFuelText(GameModelObj.tank1.fuel);
+            
             if (GameModelObj.tank1.fuel > 0) tank1.moving();
             tank1.Targeting();
+            
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 tank1.Shoot();
@@ -111,13 +116,17 @@ public class GamePresenter : MonoBehaviour
                 tank2.ActivePoints();
                 tank1.MovementAudio.Pause();
             }
+            
             if (GameModelObj.tank1.fuel <= 0) tank1.MovementAudio.Pause();
         }
+        
         else if (GameModelObj.tank2.turn == 1)
         {
             tank2.SetFuelText(GameModelObj.tank2.fuel);
+        
             if (GameModelObj.tank2.fuel > 0) tank2.moving();
             tank2.Targeting();
+            
             if (Input.GetKeyDown(KeyCode.Return))
             {
                 tank2.Shoot();
@@ -127,9 +136,10 @@ public class GamePresenter : MonoBehaviour
                 tank1.ActivePoints();
                 tank2.MovementAudio.Pause();
             }
+            
             if (GameModelObj.tank2.fuel <= 0) tank2.MovementAudio.Pause();
-
         }
+        
         GameModelObj.CheckStatus();
     }
 }
